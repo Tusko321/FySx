@@ -2,7 +2,6 @@
 
 Window::Window(int width, int height, const char* title) {
 	window = NULL;
-	renderer = NULL;
 
 	this->width = width;
 	this->height = height;
@@ -22,21 +21,21 @@ Window::Window(int width, int height, const char* title) {
 		}
 		else {
 			//Get window renderer
-			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+			renderer = new Renderer(SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED));
 			
 			if (renderer == NULL) {
 				Logger::getLogger()->log(ERROR, std::format("Could not create renderer! SDL Error: {}\n", SDL_GetError()).c_str());
 			}
 			else {
 				//Fill the renderer empty
-				SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-				SDL_RenderClear(renderer);
+				SDL_SetRenderDrawColor(renderer->getSDLRenderer(), 0, 0, 0, 0);
+				SDL_RenderClear(renderer->getSDLRenderer());
 
 				//Run start
 				start();
 
 				//Update renderer
-				SDL_RenderPresent(renderer);
+				SDL_RenderPresent(renderer->getSDLRenderer());
 
 				//Enter update loop
 				update();
@@ -78,14 +77,14 @@ void Window::update() {
 		}
 
 		//Fill the renderer empty
-		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
-		SDL_RenderClear(renderer);
+		SDL_SetRenderDrawColor(renderer->getSDLRenderer(), 0, 0, 0, 0);
+		SDL_RenderClear(renderer->getSDLRenderer());
 
 		//update
 		//draw
 
 		//Update renderer
-		SDL_RenderPresent(renderer);
+		SDL_RenderPresent(renderer->getSDLRenderer());
 	}
 }
 
@@ -94,7 +93,7 @@ Window::~Window() {
 }
 
 void Window::clean() {
-	SDL_DestroyRenderer(renderer);
+	delete renderer;
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }

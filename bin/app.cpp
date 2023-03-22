@@ -8,5 +8,7 @@ int main(int argc, char* args[]) {
 
 	Logger::getLogger()->log(INFO, "After window");
 
+	delete window;
+
 	return 0;
 }

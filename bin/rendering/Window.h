@@ -2,11 +2,12 @@
 #include <SDL.h>
 #include <Logger.h>
 #include <stdio.h>
+#include "Renderer.h"
 
 class Window {
 private:
 	SDL_Window* window;
-	SDL_Renderer* renderer;
+	Renderer* renderer;
 
 	int width, height;
 	float aspectRatio;
