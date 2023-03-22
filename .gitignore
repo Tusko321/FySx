@@ -1,3 +1,9 @@
+# VS Garabge
+.vs
+
+# VS Build
+x64
+
 # Prerequisites
 *.d
 
@@ -14,7 +20,6 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -24,7 +29,6 @@
 *.lai
 *.la
 *.a
-*.lib
 
 # Executables
 *.exe
