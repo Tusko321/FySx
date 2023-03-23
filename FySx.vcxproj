@@ -136,11 +136,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bin\app.cpp" />
+    <ClCompile Include="bin\core\Object.cpp" />
+    <ClCompile Include="bin\rendering\Renderer.cpp" />
     <ClCompile Include="bin\rendering\Window.cpp" />
     <ClCompile Include="bin\util\Logger.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bin\core\Object.h" />
     <ClInclude Include="bin\math\Vector2.h" />
+    <ClInclude Include="bin\rendering\Renderer.h" />
     <ClInclude Include="bin\rendering\Window.h" />
     <ClInclude Include="bin\util\Logger.h" />
   </ItemGroup>
