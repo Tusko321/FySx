@@ -28,14 +28,13 @@ Window::Window(int width, int height, const char* title) {
 			}
 			else {
 				//Fill the renderer empty
-				SDL_SetRenderDrawColor(renderer->getSDLRenderer(), 0, 0, 0, 0);
-				SDL_RenderClear(renderer->getSDLRenderer());
+				renderer->clear();
 
 				//Run start
 				start();
 
 				//Update renderer
-				SDL_RenderPresent(renderer->getSDLRenderer());
+				renderer->present();
 
 				//Enter update loop
 				update();
@@ -76,20 +75,17 @@ void Window::update() {
 				quit = true;
 		}
 
-		//Fill the renderer empty
-		SDL_SetRenderDrawColor(renderer->getSDLRenderer(), 0, 0, 0, 0);
-		SDL_RenderClear(renderer->getSDLRenderer());
+		renderer->clear();
 
 		//update
 		//draw
 
-		//Update renderer
-		SDL_RenderPresent(renderer->getSDLRenderer());
+		renderer->present();
 	}
 }
 
 Window::~Window() {
-	clean();
+	
 }
 
 void Window::clean() {

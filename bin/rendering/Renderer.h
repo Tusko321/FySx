@@ -9,5 +9,9 @@ public:
 	Renderer(SDL_Renderer* renderer);
 	~Renderer();
 
+	void render();
+	void clear();
+	void present();
+
 	SDL_Renderer* getSDLRenderer();
 };

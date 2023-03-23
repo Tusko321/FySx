@@ -2,8 +2,6 @@
 #include <Logger.h>
 
 Renderer::Renderer(SDL_Renderer* renderer) {
-	this->renderer = NULL;
-
 	this->renderer = renderer;
 
 	if (this->renderer == NULL) {
@@ -13,6 +11,21 @@ Renderer::Renderer(SDL_Renderer* renderer) {
 
 Renderer::~Renderer() {
 	SDL_DestroyRenderer(renderer);
+}
+
+void Renderer::render() {
+
+}
+
+void Renderer::clear() {
+	//Fill the renderer empty
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+	SDL_RenderClear(renderer);
+}
+
+void Renderer::present() {
+	//Update renderer
+	SDL_RenderPresent(renderer);
 }
 
 SDL_Renderer* Renderer::getSDLRenderer() {
