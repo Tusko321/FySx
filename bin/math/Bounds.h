@@ -16,6 +16,11 @@ struct Bounds {
 		this->size = size;
 	}
 
+	Bounds(float x, float y, float w, float h) {
+		this->position = Vector2(x, y);
+		this->size = Vector2(w, h);
+	}
+
 	Bounds(Bounds& copy) {
 		position = copy.position;
 		size = copy.size;

@@ -28,6 +28,6 @@ void Renderer::present() {
 	SDL_RenderPresent(renderer);
 }
 
-SDL_Renderer* Renderer::getSDLRenderer() {
+SDL_Renderer* Renderer::getSDLRenderer() const {
 	return renderer;
 }

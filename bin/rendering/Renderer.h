@@ -13,5 +13,5 @@ public:
 	void clear();
 	void present();
 
-	SDL_Renderer* getSDLRenderer();
+	SDL_Renderer* getSDLRenderer() const;
 };
