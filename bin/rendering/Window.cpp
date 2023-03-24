@@ -7,7 +7,7 @@ Window::Window(int width, int height, const char* title) {
 	this->height = height;
 	aspectRatio = (float)width / (float)height;
 	deltaTime = 0.0f;
-	prevTime = std::chrono::high_resolution_clock::now();
+	prevTime = 0;
 
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 		Logger::getLogger()->log(ERROR, std::format("SDL failed to initialize. SDL_ERROR: %s\n", SDL_GetError()).c_str());
@@ -49,17 +49,18 @@ void Window::start() {
 
 void Window::update() {
 	SDL_Event e;
-	std::chrono::high_resolution_clock::time_point timeNow;
 	bool quit = false;
 	while (quit == false) {
-		timeNow = std::chrono::high_resolution_clock::now();
-		deltaTime = (timeNow - prevTime).count() / static_cast<float>(1e+9);
-		prevTime = timeNow;
+		if (prevTime == 0) {
+			prevTime = SDL_GetTicks64();
+			continue;
+		}
+		Uint64 currentTime = SDL_GetTicks64();
+		float deltaTime = (currentTime - prevTime) / 1000.0f;
+		char c[32];
+		sprintf_s(c, "%.16f", deltaTime);
 
-		float fps = (1.0f / deltaTime) * static_cast<float>(1000);
-		char s[64];
-		sprintf_s(s, "%.16f", fps);
-		Logger::getLogger()->log(INFO, s);
+		Logger::getLogger()->log(INFO, c);
 
 		//input
 		while (SDL_PollEvent(&e)) {
@@ -81,6 +82,8 @@ void Window::update() {
 		//draw
 
 		renderer->present();
+
+		prevTime = currentTime;
 	}
 }
 

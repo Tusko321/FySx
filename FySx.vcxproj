@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bin\app.cpp" />
+    <ClCompile Include="bin\rendering\Camera.cpp" />
     <ClCompile Include="bin\rendering\Renderer.cpp" />
     <ClCompile Include="bin\rendering\Window.cpp" />
     <ClCompile Include="bin\util\Logger.cpp" />
@@ -144,6 +145,8 @@
     <ClInclude Include="bin\math\Bounds.h" />
     <ClInclude Include="bin\math\Box2D.h" />
     <ClInclude Include="bin\math\Vector2.h" />
+    <ClInclude Include="bin\math\Vector2Int.h" />
+    <ClInclude Include="bin\rendering\Camera.h" />
     <ClInclude Include="bin\rendering\Renderer.h" />
     <ClInclude Include="bin\rendering\Window.h" />
     <ClInclude Include="bin\util\Logger.h" />
