@@ -27,9 +27,6 @@
     <ClCompile Include="bin\rendering\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bin\core\Object.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bin\util\Logger.h">
@@ -44,7 +41,10 @@
     <ClInclude Include="bin\rendering\Renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="bin\core\Object.h">
+    <ClInclude Include="bin\math\Box2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bin\math\Bounds.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

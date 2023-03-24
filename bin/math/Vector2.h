@@ -5,6 +5,11 @@
 struct Vector2 {
 	float x, y;
 
+	Vector2() {
+		x = 0.0f;
+		y = 0.0f;
+	}
+
 	Vector2(float x, float y) {
 		this->x = x;
 		this->y = y;
@@ -15,11 +20,11 @@ struct Vector2 {
 		this->y = vector.y;
 	}
 
-	float magnitude() {
+	const inline float magnitude() {
 		return (x * x) + (y * y);
 	}
 
-	float sqrMagnitude() {
+	const inline float sqrMagnitude() {
 		return sqrtf((x * x) + (y * y));
 	}
 };
