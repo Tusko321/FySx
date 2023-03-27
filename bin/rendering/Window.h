@@ -11,7 +11,7 @@ private:
 
 	int width, height;
 	float aspectRatio;
-	std::chrono::high_resolution_clock::time_point prevTime;
+	Uint64 prevTime;
 	float deltaTime;
 
 	void start();
