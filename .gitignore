@@ -1,5 +1,6 @@
 # VS Garabge
 .vs
+*.vcxproj*
 
 # VS Build
 x64
@@ -34,5 +35,4 @@ x64
 *.exe
 *.out
 *.app
-*.vcxproj
-*.filters
+
