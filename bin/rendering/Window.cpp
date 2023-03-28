@@ -50,13 +50,14 @@ void Window::start() {
 void Window::update() {
 	SDL_Event e;
 	bool quit = false;
+	double deltaTime;
 	while (quit == false) {
 		if (prevTime == 0) {
 			prevTime = SDL_GetTicks64();
 			continue;
 		}
 		Uint64 currentTime = SDL_GetTicks64();
-		float deltaTime = (currentTime - prevTime) / 1000.0f;
+		deltaTime = (currentTime - prevTime) / 1000.0f;
 		char c[32];
 		sprintf_s(c, "%.16f", deltaTime);
 
